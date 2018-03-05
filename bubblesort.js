@@ -1,9 +1,14 @@
 function bubbleSort(array) {
   let sorted = array;
-  if (sorted.length > 1) {
-    for (let i = 0; i < sorted.length - 1; i++) {
-      if (toSwap(sorted[i], sorted[i + 1])) {
-        swap(sorted, i);
+  let swapped = true;
+  while (swapped) {
+    swapped = false;
+    if (sorted.length > 1) {
+      for (let i = 0; i < sorted.length - 1; i++) {
+        if (toSwap(sorted[i], sorted[i + 1])) {
+          swap(sorted, i);
+          swapped = true;
+        }
       }
     }
   }
