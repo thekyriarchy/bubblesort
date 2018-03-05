@@ -11,25 +11,21 @@ function merge(arr1, arr2) {
   let merged = [];
 
   while (index1 < arr1.length || index2 < arr2.length) {
-    if (index1 === arr1.length) {
-      while (index2 < arr2.length) {
-        merged.push(arr2[index2]);
-        index2++;
-      }
-    } else if (index2 === arr2.length) {
-      while (index1 < arr1.length) {
+    while (index1 === arr1.length && index2 < arr2.length) {
+      merged.push(arr2[index2]);
+      index2++;
+    }
+    while (index2 === arr2.length && index1 < arr1.length) {
+      merged.push(arr1[index1]);
+      index1++;
+    }
+    while (index2 < arr2.length && index1 < arr1.length) {
+      if (arr1[index1] < arr2[index2]) {
         merged.push(arr1[index1]);
         index1++;
-      }
-    } else {
-      while (index2 < arr2.length && index1 < arr1.length) {
-        if (arr1[index1] < arr2[index2]) {
-          merged.push(arr1[index1]);
-          index1++;
-        } else {
-          merged.push(arr2[index2]);
-          index2++;
-        }
+      } else {
+        merged.push(arr2[index2]);
+        index2++;
       }
     }
   }
