@@ -1,12 +1,14 @@
 describe("Bubble Sort", function() {
-  beforeAll(function() {
+  beforeEach(function() {
     spyOn(window, "swap").and.callThrough(); // replace existing `swap`
   });
   it("handles an empty array", function() {
     expect(bubbleSort([])).toEqual([]);
+    expect(swap).not.toHaveBeenCalled();
   });
   it("handles a sorted array of integers", function() {
     expect(bubbleSort([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+    expect(swap).not.toHaveBeenCalled();
   });
   it("handles a unsorted array of integers", function() {
     expect(bubbleSort([2, 1, 3, 5, 4])).toEqual([1, 2, 3, 4, 5]);
@@ -20,5 +22,7 @@ describe("Bubble Sort", function() {
       4.1,
       5.6
     ]);
+    expect(swap).toHaveBeenCalledTimes(2);
   });
 });
+
