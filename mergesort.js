@@ -10,7 +10,7 @@ function merge(arr1, arr2) {
   let index2 = 0;
   let merged = [];
 
-  while (index1 < arr1.length || index2 < arr2.length){
+  while (index1 < arr1.length || index2 < arr2.length) {
     if (index1 === arr1.length) {
       while (index2 < arr2.length) {
         merged.push(arr2[index2]);
@@ -22,7 +22,7 @@ function merge(arr1, arr2) {
         index1++;
       }
     } else {
-      while (index2 < arr2.length && index1 < arr1.length){
+      while (index2 < arr2.length && index1 < arr1.length) {
         if (arr1[index1] < arr2[index2]) {
           merged.push(arr1[index1]);
           index1++;
@@ -31,15 +31,15 @@ function merge(arr1, arr2) {
           index2++;
         }
       }
-  }
+    }
   }
   return merged;
 }
 
- function mergeSort(arr) {
-   if (arr.length < 2) {
-     return arr;
-   } else {
-     if (split(arr[(arr).length split)
-   }
- }
+function mergeSort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  } else {
+    return merge(mergeSort(split(arr)[0]), mergeSort(split(arr)[1]));
+  }
+}
